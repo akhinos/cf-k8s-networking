@@ -7542,7 +7542,7 @@ metadata:
 spec:
   peers:
   - mtls:
-      mode: PERMISSIVE
+      mode: STRICT
 ---
 apiVersion: policy/v1beta1
 kind: PodDisruptionBudget
@@ -10183,3 +10183,28 @@ metadata:
   labels:
     app: istio-telemetry
     release: istio
+---
+apiVersion: authentication.istio.io/v1alpha1
+kind: Policy
+metadata:
+  name: cf-db-allow-plaintext
+  namespace: cf-db
+spec:
+  targets:
+  - name: cf-db-postgresql
+  - name: cf-db-postgresql-headless
+  peers:
+  - mtls:
+      mode: PERMISSIVE
+---
+apiVersion: authentication.istio.io/v1alpha1
+kind: Policy
+metadata:
+  name: log-cache-workaround
+  namespace: cf-system
+spec:
+  targets:
+  - name: log-cache
+  peers:
+  - mtls:
+      mode: PERMISSIVE

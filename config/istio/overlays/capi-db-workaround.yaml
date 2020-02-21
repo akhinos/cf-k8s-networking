@@ -1,0 +1,13 @@
+---
+apiVersion: "authentication.istio.io/v1alpha1"
+kind: "Policy"
+metadata:
+  name: "cf-db-allow-plaintext"
+  namespace: "cf-db"
+spec:
+  targets:
+  - name: cf-db-postgresql
+  - name: cf-db-postgresql-headless
+  peers:
+  - mtls:
+      mode: PERMISSIVE
