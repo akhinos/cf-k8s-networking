@@ -17,9 +17,16 @@ spec:
   values:
     gateways:
       istio-ingressgateway:
+        autoscaleEnabled: false
+        replicaCount: 20
         externalTrafficPolicy: Local
         sds:
           enabled: true
+    pilot:
+      autoscaleEnabled: false
+      replicaCount: 20
+    galley:
+      replicaCount: 10
     sidecarInjectorWebhook:
       rewriteAppHTTPProbe: true
     global:

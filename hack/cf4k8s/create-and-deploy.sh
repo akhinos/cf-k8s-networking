@@ -89,9 +89,9 @@ function configure_dns() {
 }
 
 function main() {
-  create_and_target_cluster
-  deploy_cf_for_k8s
-  configure_dns
+  # create_and_target_cluster
+  # deploy_cf_for_k8s
+  # configure_dns
   target_cf
 }
 
