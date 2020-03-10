@@ -10203,3 +10203,13 @@ metadata:
   labels:
     app: istio-telemetry
     release: istio
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Sidecar
+metadata:
+  name: default
+  namespace: cf-workloads
+spec:
+  egress:
+  - hosts:
+    - ~/*
